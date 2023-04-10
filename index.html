@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* background-color: rgb(218, 216, 216); */
+            /* padding-top: 10%; */
+        }
+
+        h1{
+            margin-top: 5%;
+            margin-bottom: 3%;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #main-calc {
+            width: 285px;
+            height: 365px;
+            border: 1px black solid;
+            margin: auto;
+            padding-top: 5px;
+            box-shadow: 0 0 10px grey;
+            background-color: #dddddd;
+            /* background-color: black; */
+        }
+
+        #display {
+            width: 270px;
+            height: 128px;
+            /* border: 3px black solid; */
+            padding: 5px;
+            margin: auto;
+            color: black;
+            text-align: end;
+            /* line-height: 75px; */
+            font-size: xx-large;
+            font-weight: 600;
+            background-color: #dddddd;
+            overflow-wrap: break-word;
+            overflow: hidden;
+            /* background-color: rgb(251, 252, 253); */
+        }
+
+
+        #buttons {
+            width: 280px;
+            height: 215px;
+            /* border: 1px black solid; */
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            width: 65px;
+            height: 50px;
+            font-size: x-large;
+            font-weight: 600;
+            /* border: 1px black solid; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 2px;
+            background-color: white;
+            color:black;
+            /* border-radius: 50%; */
+        }
+
+        .btn:hover{
+            background-color: #a8a7a7;
+            border: 1px solid #818181;
+        }
+
+        #btn_eq{
+            background-color: #45b6fe;
+        }
+
+        #btn_eq:hover{
+            background-color: #3792cb;
+            border: 1px solid #23628a;
+        }
+
+        .btn1{
+            background-color: #cccaca;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>--- Calculator ---</h1>
+    <div id="main-calc">
+        <div id="display"></div>
+        <div id="buttons">
+            <div class="btn" id="btn_1" onclick='document.getElementById("display").innerHTML+="1"'> 1 </div>
+            <div class="btn" id="btn_2" onclick='document.getElementById("display").innerHTML+="2"'> 2</div>
+            <div class="btn" id="btn_3" onclick='document.getElementById("display").innerHTML+="3"'> 3 </div>
+            <div class="btn btn1" id="btn_clr" onclick='document.getElementById("display").innerHTML=""'> C </div>
+
+            <div class="btn" id="btn_4" onclick='document.getElementById("display").innerHTML+="4"'> 4 </div>
+            <div class="btn" id="btn_5" onclick='document.getElementById("display").innerHTML+="5"'> 5 </div>
+            <div class="btn" id="btn_6" onclick='document.getElementById("display").innerHTML+="6"'> 6 </div>
+            <div class="btn btn1" id="btn_sub" onclick='document.getElementById("display").innerHTML+="-"'> - </div>
+            
+            <div class="btn" id="btn_7" onclick='document.getElementById("display").innerHTML+="7"'> 7 </div>
+            <div class="btn" id="btn_8" onclick='document.getElementById("display").innerHTML+="8"'> 8 </div>
+            <div class="btn" id="btn_9" onclick='document.getElementById("display").innerHTML+="9"'> 9 </div>
+            <div class="btn btn1" id="btn_add" onclick='document.getElementById("display").innerHTML+="+"'> + </div>
+            
+            <div class="btn" id="btn_0" onclick='document.getElementById("display").innerHTML+="0"'> 0 </div>
+            <div class="btn btn1" id="btn_div" onclick='document.getElementById("display").innerHTML+="/"'> / </div>
+            <div class="btn btn1" id="btn_mul" onclick='document.getElementById("display").innerHTML+="*"'> * </div>
+            <div class="btn" id="btn_eq" onclick="show()"> = </div>
+        </div>
+    </div>
+
+    <script>
+
+        function show() {
+            var input = document.getElementById("display").innerHTML;
+            const result = eval(input);
+            input += "=";
+            document.getElementById("display").innerHTML = input + result;
+            console.log(result);
+        }
+    </script>
+
+</body>
+
+</html>
